@@ -1,0 +1,77 @@
+.full { position: absolute; width: 1265px; height: 100px; }
+.mp { position: absolute; width: 1265px; height: 145px; left: 79px; background-repeat: no-repeat !important;}
+.top { top: -150px; } /* -150 */
+
+/* .players { background: url('../images/top-match.png'); } */
+.matches { background: url('../images/Match.svg');}
+.scores { background: url('../images/top-scores.png'); }
+.BGlogoT1 { background: url('../images/BKLogoA.svg');}
+.BGlogoT2 { background: url('../images/BKLogoB.svg');}
+/* .logo1 { background: url('../images/logoTa.svg');} */
+/* .logo2 { background: url('../images/logoTb.svg');} */
+.BGname { background: url('../images/BKName.svg');}
+.Adslogo { background: url('../images/logitechg-logo.svg'); }
+.ECMBLUEBG { background: url('../images/ECMBLUE.svg');}
+.ECMREDBG { background: url('../images/ECMRed.svg');}
+
+/* ENCS */
+.Curse-of-Death { background: url('../ENCs/Curse-of-Death.png'); }
+.Desperate-Duel { background: url('../ENCs/Desperate-Duel.png'); }
+.Devils-Awakening { background: url('../ENCs/Devils-Awakening.png'); }
+.Endless-Cycle { background: url('../ENCs/Endless-Cycle.png'); }
+.Visceral-Boost { background: url('../ENCs/Visceral-Boost.png'); }
+.Explosive-Shield { background: url('../ENCs/Explosive-Shield.png'); }
+.Forest-Wanderer { background: url('../ENCs/Forest-Wanderer.png'); }
+.Natures-Rage { background: url('../ENCs/Natures-Rage.png'); }
+.Holy-Summoner { background: url('../ENCs/Holy-Summoner.png'); }
+.Holy-Thunder { background: url('../ENCs/Holy-Thunder.png'); }
+.Sacred-Protection { background: url('../ENCs/Sacred-Protection.png'); }
+
+.ads { position: absolute; width: 335px; height: 79px; background-color: #FFFFFF;}
+.ads { top: 0px; left: 2000px; opacity: 0.8;}
+
+.Adslogo { position: absolute; width: 206px; height: 53px; background-repeat: no-repeat;}
+.Adslogo { top: 15px; left: 50px;}
+
+.BGlogos { position: absolute; width: 150px; height: 100px; background-repeat: no-repeat;}
+.BGlogoT1 { top: 0px; left: 23px; }
+.BGlogoT2 { top: 0px; right: -10px; }
+
+.logos { position: absolute; width: 60px; height: 70px; background-repeat: no-repeat;}
+.logo1 { top: 13px; left: 23px; }
+.logo2 { top: 10px; right: 30px; }
+
+.BGname { top: 79px; right: 195px; position: absolute; width: 990px; height: 70px; background-repeat: no-repeat;}
+
+.teams { position: absolute; width: 340px; height: 30px; }
+.Tname1 { top: 7px; left: 50px; text-align: center; font-size: 25px; }
+.Tname2 { top: 7px; right: 90px; text-align: center; font-size: 25px;}
+
+.score { position: absolute; width: 50px; height: 30px; font-size: 30px;}
+.score1 { top: 7px; left: 30px; text-align: center; }
+.score2 { top: 7px; right: 50px; text-align: center; }
+
+.matches { top: 83px; left: 490px; position: absolute; width: 150px; height: 60px; background-repeat: no-repeat;}
+.matche { top: -2px; left: 13px; text-align: center; position: absolute; width: 100px; height: 40px; font-size: 18px;}
+.matche1 { top: 18px; left: 13px; text-align: center; position: absolute; width: 100px; height: 40px; font-size: 18px;}
+
+.ECMBGBLUES { position: absolute; width: 85px; height: 500px;}
+.ECMBLUEBG { position: relative; width: 83.29px; height: 86.52px; background-repeat: no-repeat;}
+.ECMBGBLUES { top: 355px; left: -600px; }
+.EP1 { top:0px }
+.EP2 { top:6px }
+.EP3 { top:18px }
+.EP4 { top:28px }
+.EP5 { top:40px }
+
+.ECMBGREDS { position: absolute; width: 85px; height: 500px;}
+.ECMREDBG { position: relative; width: 83.29px; height: 86.52px; background-repeat: no-repeat;}
+.ECMBGREDS { top: 355px; right: -600px; }
+.EP6 { top:0px }
+.EP7 { top:3px }
+.EP8 { top:14px }
+.EP9 { top:23px }
+.EP10 { top:33px }
+
+.EBS { position: absolute; width: 57px; height: 57px; top: 19px; right: 6px;}
+.ERS { position: absolute; width: 57px; height: 57px; top: 19px; right: 18px;}

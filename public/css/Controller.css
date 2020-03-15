@@ -1,0 +1,18 @@
+.jumbotron {
+    padding: 2rem 1rem;
+}
+
+.number {
+    width: 30% !important;
+    float: right;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+   opacity: 1;
+
+}
+
+
+

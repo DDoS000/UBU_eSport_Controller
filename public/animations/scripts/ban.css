@@ -1,0 +1,27 @@
+.full { position: absolute; width: 1265px; height: 100px; }
+.title { position: absolute; width: 1265px; height: 145px; left: 79px; background-repeat: no-repeat !important;}
+.top { top: -150px; }
+
+.BlueTBG { background: url('../images/Ban/BanBGBlueT.png');}
+.RedTBG { background: url('../images/Ban/BanBGRedT.png');}
+
+.BlueTBG { position: absolute; width: 867.03px; height: 115px; background-repeat: no-repeat;}
+.BlueTBG { left: -400px;}
+.RedTBG { position: absolute; width: 870.02px; height: 115px; background-repeat: no-repeat;}
+.RedTBG { right: -256px;}
+
+.Team1 { position: absolute; width: 300px; height: 70px; font-size: 30px; text-align: left;}
+.Team1 { top: 35px; left: 450px;}
+.score1 { position: absolute; width: 50px; height: 50px; font-size: 60px; text-align: left;}
+.score1 { top: 35px; left: 730px;}
+
+.Team2 { position: absolute; width: 300px; height: 70px;  font-size: 30px; text-align: right;}
+.Team2 { top: 35px; right: 430px;}
+.score2 { position: absolute; width: 50px; height: 50px; font-size: 60px; text-align: right;}
+.score2 { top: 35px; right: 730px;}
+
+.bglogo { position: absolute; width: 688px; height: 115px; background-color: black;}
+.bglogo { left: 199px;}
+
+.logos { position: absolute; width: 182px; height: 115px; }
+.logos { left: 269px; text-align: center;}
