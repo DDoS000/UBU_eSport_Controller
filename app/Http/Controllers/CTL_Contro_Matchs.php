@@ -17,6 +17,7 @@ class CTL_Contro_Matchs extends Controller
      */
     public function index()
     {
+
     }
 
     /**
@@ -36,15 +37,14 @@ class CTL_Contro_Matchs extends Controller
      */
     public function store(Request $request)
     {
-        Contro_Matchs::truncate();
-        $this->validate($request, ['TeamA' => 'required', 'TeamB' => 'required', 'scoret1' => 'required', 'scoret2' => 'required']);
+        $this->validate($request, ['TeamA' => 'required', 'TeamB' => 'required', 'scoret1' => 'required', 'scoret2' => 'required', 'tid' => 'required']);
         $Teams = new Contro_Matchs(
             [
+                'tid' => $request->get('tid'),
                 'TeamA' => $request->get('TeamA'),
                 'TeamB' => $request->get('TeamB'),
                 'scoret1' => $request->get('scoret1'),
                 'scoret2' => $request->get('scoret2')
-
             ]
         );
         $Teams->save();
@@ -60,13 +60,23 @@ class CTL_Contro_Matchs extends Controller
      */
     public function show($tid)
     {
+        $Teams = DB::table('contro__matchs')->where('tid', $tid)->get()->toArray();
+        if (count($Teams) == 0) {
+            $Teams = DB::table('contro__matchs')->where('tid', 'Default')->get()->toArray();
+            $Teams = $Teams[0];
+        } else {
+            $Teams = $Teams[0];
+            // dd($Teams);
+        }
+
         $games = DB::table('tournaments')->where('tid', $tid)->get();
-        return view('Contro_Match', compact('games'));
+        $Team_names = explode(",", $games[0]->Team_name);
+        return view('Contro_Match', compact('games', 'Teams', 'tid', 'Team_names'));
     }
 
     public function api($tid)
     {
-        $games = DB::table('contro__matchs')->get();
+        $games = DB::table('contro__matchs')->where('tid', $tid)->get();
         $data = [
             'Team1' => $games[0]->TeamA,
             'Team2' => $games[0]->TeamB,
@@ -80,45 +90,17 @@ class CTL_Contro_Matchs extends Controller
             'visible' => 'true',
             'time' => Str::random(10),
         ];
-        // $data = [
-        //     'Team1' => 'DDoS',
-        //     'Team1A' => '',
-        //     'Team1B' => '',
-        //     'Team2' => 'Tan',
-        //     'Team2A' =>  '',
-        //     'Team2B ' => '',
-        //     'score1' => 0,
-        //     'score1A' => 0,
-        //     'score1B' => '',
-        //     'score2' => 20,
-        //     'score2A' => 0,
-        //     'score2B' => '',
-        //     'match' => 'Match',
-        //     'matchA' => '',
-        //     'matchB' => '',
-        //     'game' => '2',
-        //     'gameA' => '',
-        //     'gameB' => '',
-        //     'visible' => true ,
-        //     'time' => 56651665161,
-        // ];
-        // $data = [
-        //     'Team1' => 'DDoS',
-
-        //     'Team2' => 'Tan',
-
-        //     'score1' => 0,
-
-        //     'score2' => 20,
-
-        //     'match' => 'Match',
-
-        //     'game' => '2',
-
-        //     'visible' => true ,
-        //     'time' => 5165161616,
-        // ];
         return response()->xml($data);
+    }
+
+    public function inGame($tid)
+    {
+        return view('ROV.inGame', compact('tid'));
+    }
+
+    public function Ban($tid)
+    {
+        return view('ROV.Ban', compact('tid'));
     }
 
     /**
@@ -139,9 +121,23 @@ class CTL_Contro_Matchs extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $tid)
     {
-        //
+        $this->validate($request, ['TeamA' => 'required', 'TeamB' => 'required', 'scoret1' => 'required', 'scoret2' => 'required', 'tid' => 'required']);
+
+        // $Teams = DB::table('contro__matchs')->where('tid', $tid)->get();
+        // $Teams = DB::update(('contro__matchs')->where('tid', $tid)->get();)
+
+
+        $TeamA = $request->get('TeamA');
+        $TeamB = $request->get('TeamB');
+        $scoret1 = $request->get('scoret1');
+        $scoret2 = $request->get('scoret2');
+
+        $data = DB::update('update contro__matchs set TeamA=?, TeamB=?, scoret1=?, scoret2=? where tid=?',
+        [$TeamA, $TeamB, $scoret1, $scoret2, $tid]);
+
+        return back()->withInput()->with('success', 'บันทึกข้อมูลเรียบร้อย');
     }
 
     /**

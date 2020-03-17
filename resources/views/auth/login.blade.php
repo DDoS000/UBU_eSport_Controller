@@ -72,7 +72,7 @@
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
+				<p>เราคือระะบบการจัดการ การแข่งขันที่ดีที่สุดในระดับมหาวิทยาลัย</p>
 				<button class="ghost" id="signIn">เข้าสู่ระบบ</button>
 			</div>
 			<div class="overlay-panel overlay-right">
@@ -86,7 +86,7 @@
 </div>
 
 
-    
+
 <script>
 
 	// ----------randomtext--------

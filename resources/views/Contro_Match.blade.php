@@ -4,11 +4,14 @@
 <link rel="stylesheet" href="{{ asset('css/Controller.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.0/dist/gridstack.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.0/dist/gridstack.all.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
 
 @endsection
 
 @section('content')
+<br>
 <div class="container-xl">
     @if(count($errors) > 0)
     <div class="alert alert-danger">
@@ -25,23 +28,26 @@
     @endif
 
     <div class="grid-stack">
-        <div class="grid-stack-item" data-gs-width="6" data-gs-height="3" data-gs-no-resize="true">
+        <div class="grid-stack-item" data-gs-width="6" data-gs-height="4" data-gs-no-resize="true">
             <div class="grid-stack-item-content">
+                @if ($Teams->TeamA == '')
                 <form action="{{ url('Controller') }}" method="POST">
                     @csrf
+                    <input type="hidden" name="tid" value="{{ $tid }}">
                     <div class="jumbotron">
+                        <h4>จัดการทีมแข่ง</h4>
+                        <hr>
                         <div class="row">
                             <div class="input-group col-6 md-auto">
                                 <div class="input-group-prepend">
                                     <label class="input-group-text" for="TeamAs">Team:A</label>
                                 </div>
-                                <input list="TeamA" name="TeamA" id="TeamAs" class="custom-select"></label>
+                                <input list="TeamA" name="TeamA" value="{{ $Teams->TeamA }}" id="TeamAs"
+                                    class="custom-select" required></label>
                                 <datalist id="TeamA">
-                                    <option value="Team">
-                                    <option value="Team">
-                                    <option value="Team">
-                                    <option value="Team">
-                                    <option value="Team">
+                                    @foreach($Team_names as $Team_name)
+                                    <option value="{{$Team_name}}">
+                                        @endforeach
                                 </datalist>
                             </div>
 
@@ -49,31 +55,112 @@
                                 <div class="input-group-prepend">
                                     <label class="input-group-text" for="TeamBs">Team:B</label>
                                 </div>
-                                <input list="TeamB" name="TeamB" id="TeamBs" class="custom-select"></label>
+                                <input list="TeamB" name="TeamB" id="TeamBs" value="{{ $Teams->TeamB }}"
+                                    class="custom-select" required></label>
                                 <datalist id="TeamB">
-                                    <option value="Team">
-                                    <option value="Team">
-                                    <option value="Team">
-                                    <option value="Team">
-                                    <option value="Team">
+                                    @foreach($Team_names as $Team_name)
+                                    <option value="{{$Team_name}}">
+                                        @endforeach
                                 </datalist>
                             </div>
                             <div class="col-6 md-auto">
-                                <input type="number" name="scoret1" min="0" value="0" class="number form-control">
+                                <input type="number" name="scoret1" min="0" value="{{ $Teams->scoret1 }}"
+                                    class="number form-control" required>
                             </div>
                             <div class="col-6 md-auto">
-                                <input type="number" name="scoret2" min="0" value="0" class="number form-control">
+                                <input type="number" name="scoret2" min="0" value="{{ $Teams->scoret2 }}"
+                                    class="number form-control" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success" id="pass">อัพเดท</button>
+                        <hr>
+                        <button type="submit" class="btn btn-outline-primary" id="pass" style="float:right;margin-top:6px">อัพเดท</button>
                     </div>
                 </form>
+                @else
+                <form action="{{ action('CTL_Contro_Matchs@update', $tid) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" name="tid" value="{{ $tid }}">
+                    <div class="jumbotron">
+                        <h4>จัดการทีมแข่ง</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="input-group col-6 md-auto">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="TeamAs">Team:A</label>
+                                </div>
+                                <input list="TeamA" name="TeamA" value="{{ $Teams->TeamA }}" id="TeamAs"
+                                    class="custom-select" required></label>
+                                <datalist id="TeamA">
+                                    @foreach($Team_names as $Team_name)
+                                    <option value="{{$Team_name}}">
+                                        @endforeach
+                                </datalist>
+                            </div>
+
+                            <div class="input-group col-6 md-auto">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="TeamBs">Team:B</label>
+                                </div>
+                                <input list="TeamB" name="TeamB" id="TeamBs" value="{{ $Teams->TeamB }}"
+                                    class="custom-select" required></label>
+                                <datalist id="TeamB">
+                                    @foreach($Team_names as $Team_name)
+                                    <option value="{{$Team_name}}">
+                                        @endforeach
+                                </datalist>
+                            </div>
+                            <div class="col-6 md-auto">
+                                <input type="number" name="scoret1" min="0" value="{{ $Teams->scoret1 }}"
+                                    class="number form-control" required>
+                            </div>
+                            <div class="col-6 md-auto">
+                                <input type="number" name="scoret2" min="0" value="{{ $Teams->scoret2 }}"
+                                    class="number form-control" required>
+                            </div>
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-outline-primary" id="pass" style="float:right;margin-top:6px">อัพเดท</button>
+                    </div>
+                </form>
+                @endif
             </div>
         </div>
+
+
+        <div class="grid-stack-item" data-gs-width="6" data-gs-height="4" data-gs-no-resize="true">
+            <div class="grid-stack-item-content">
+                <div class="jumbotron">
+                    <h4>API Key</h4>
+                    <hr>
+                    <label>Scenes: inGame</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" value="http://127.0.0.1:8000/Controller/inGame/{{$tid}}"
+                            aria-label="Recipient's username" aria-describedby="inGame" id="inGames" readonly>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="inGame"
+                                onclick="inGame()">คัดลอก</button>
+                        </div>
+                    </div>
+                    <label>Scenes: Ban Pick</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" value="http://127.0.0.1:8000/Controller/Ban/{{$tid}}"
+                            aria-label="Recipient's username" aria-describedby="Ban" id="Bans" readonly>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="Ban"
+                                onclick="Ban()">คัดลอก</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="grid-stack-item" data-gs-width="6" data-gs-height="5" data-gs-no-resize="true">
             <div class="grid-stack-item-content">
                 <div class="jumbotron">
+                    <h4>จัดการพลังแฝง</h4>
+                    <hr>
                     <div class="row">
                         <label class="col-6 md-auto">Team:A</label>
                         <label class="col-6 md-auto">Team:B</label>
@@ -257,17 +344,69 @@
                                 <option value="Sacred-Protection.png">Sacred-Protection</option>
                             </select>
                         </div>
-                        <br><br>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="grid-stack-item" data-gs-width="6" data-gs-height="3" data-gs-no-resize="true">
+            <div class="grid-stack-item-content">
+                <div class="jumbotron">
+                    <h4>จัดการ</h4>
+                    <hr>
+                    <div class="row">
+
+                        <div class="input-group col-3 md-auto">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="upSpeed">upSpeed</span>
+                            </div>
+                            <input type="number" name="upSpeed" min="5000" value="5000" class="number form-control"
+                                aria-label="Default" aria-describedby="upSpeed" required>
+                        </div>
+                        <div class="input-group col-3 md-auto">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inSpeed">inSpeed</span>
+                            </div>
+                            <input type="number" name="inSpeed" min="1000" value="1000" class="number form-control"
+                                aria-label="Default" aria-describedby="inSpeed" required>
+                        </div>
+                        <div class="input-group col-3 md-auto">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="outSpeed">upSpeed</span>
+                            </div>
+                            <input type="number" name="outSpeed" min="1000" value="1000" class="number form-control"
+                                aria-label="Default" aria-describedby="outSpeed" required>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+
+</div>
 </div>
 
 <script type="text/javascript">
     var grid = GridStack.init();
 </script>
+
+<script>
+    function inGame() {
+      var copyText = document.getElementById("inGames");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+      alert("คัดลอกสําเร็จ: " + copyText.value);
+    }
+    function Ban() {
+      var copyText = document.getElementById("Bans");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+      alert("คัดลอกสําเร็จ: " + copyText.value);
+    }
+</script>
+
 
 @endsection

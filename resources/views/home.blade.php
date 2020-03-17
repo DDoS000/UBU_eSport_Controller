@@ -12,7 +12,12 @@
 
 
 @section('content')
-<div class="skew"></div>
+<div class="skew">
+    <div class="text-head">
+        <i id="joy" class="fas fa-gamepad"></i> ทัวร์นาเมนต์ของคุณ
+    </div>
+<img class="img-over" src="{{asset('images/undraw_gaming_6oy3.svg')}}" alt="">
+</div>
 <div id="content-card">
     <div class="container">
         <div class="row justify-content-md-center">
@@ -20,7 +25,7 @@
                 <button type="button" id="demo01" href="#animatedModal"
                     class="btn-addMatch gradient shadow p-3 mb-5 bg-white">
                     <i class="fas fa-plus"></i>
-                    <label id="Tour-text" for="">สร้างทัวร์นาเม้นต์</label>
+                    <label id="Tour-text" for="">สร้างทัวร์นาเมนต์</label>
                 </button>
             </div>
 
@@ -160,7 +165,7 @@
                 <div class="row" style="text-align:center;">
                     <div class="col-sm">
                         <button class="bubbly-button" type="submit"><i id="plus"
-                                class="fas fa-plus"></i>สร้างทัวร์นาเม้นต์</button>
+                                class="fas fa-plus"></i>สร้างทัวร์นาเมนต์</button>
                     </div>
                 </div>
         </div>

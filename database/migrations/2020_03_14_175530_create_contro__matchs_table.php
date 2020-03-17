@@ -15,6 +15,7 @@ class CreateControMatchsTable extends Migration
     {
         Schema::create('contro__matchs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('tid');
             $table->string('TeamA');
             $table->string('TeamB');
             $table->string('scoret1');

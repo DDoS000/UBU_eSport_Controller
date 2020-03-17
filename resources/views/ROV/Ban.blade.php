@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <script>
+        var fileUrl = "http://127.0.0.1:8000/Controller/api/{{$tid}}";
+    </script>
     <script src="{{ asset('animations/scripts/_minified.js') }}"></script>
     <script src="{{ asset('animations/scripts/_global.js') }}"></script>
     <script src="{{ asset('animations/scripts/ban.js') }}"></script>

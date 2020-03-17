@@ -1,4 +1,4 @@
-var fileUrl = "http://127.0.0.1:8000/Controller/api";
+// var fileUrl = "http://127.0.0.1:8000/Controller/api";
 var upSpeed = 5000;
 var inSpeed = 1000;
 var outSpeed = 1000;

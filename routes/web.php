@@ -15,14 +15,6 @@ Route::get('/', function () {
     return view('landingPage');
 });
 
-Route::get('/inGame', function () {
-    return view('ROV.inGame');
-});
-
-Route::get('/ban', function () {
-    return view('ROV.Ban');
-});
-
 Auth::routes();
 
 // Route::get('Controller/uid/{uid}', 'CTL_Contro_Matchs@C');
@@ -30,7 +22,10 @@ Auth::routes();
 // Route::get('Controller/{uid}', 'CTL_Contro_Matchs@C');
 Route::get('Controller/api/{tid}', 'CTL_Contro_Matchs@api');
 
-Route::resource('/Controller', 'CTL_Contro_Matchs');
+Route::get('Controller/inGame/{tid}', 'CTL_Contro_Matchs@inGame');
 
+Route::get('Controller/Ban/{tid}', 'CTL_Contro_Matchs@Ban');
+
+Route::resource('/Controller', 'CTL_Contro_Matchs');
 
 Route::resource('/home','HomeController');

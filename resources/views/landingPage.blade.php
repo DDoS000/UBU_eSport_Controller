@@ -32,7 +32,7 @@
         <ul id="scene">
             <li class="layer" data-depth="0.5"><img src="{{asset('images/ubu.svg')}}"></li>
             <li class="layer" data-depth=".1"><img id="Circle" src="{{asset('images/Circle.svg')}}"
-                    style="opacity: 50%; width: 70%; margin-left: 50%;"></li>
+                    style="opacity: 50%; width: 80%; margin-left: 50%;"></li>
             <li class="layer" data-depth="-1"><img id="joy" src="{{asset('images/landingPage.svg')}}"
                     style="width: 95%"></li>
             <!-- <li class="layer" data-depth="-1"><img id="joy" src="{{asset('images/planet2.png')}}"></li> -->
@@ -51,53 +51,35 @@
     </div>
 
 
-    <div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="gameSupport">
             <div class="row">
-                <div class="col align-self-center">
-                    <div data-aos="zoom-in-down"  data-aos-duration="1000">
-                        <h3 class="header">อะไรคือ UBU E-sport  Controller ?</h3>
-                    </div>
+                <div class="col-sm">
+                    game support
                 </div>
             </div>
-        <!-- <div class="row">
-            <div data-aos="fade-up">
-                    <img src="{{ asset('images/undraw_data_trends_b0wg.svg')}}" alt="" class="undraw col-xl" >
-                <p class="col-xl">Lorem ipsum dolor sit amet consectetur</p>
-            </div>
-        </div> -->
-        <div class="row">
-            <div class="col">
-            afaafaaafaf
-            </div>
-            <div class="col">
-            afaffafafafaafafaf
-            </div>
         </div>
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <div id="section-2">
             <div class="swiper-container">
